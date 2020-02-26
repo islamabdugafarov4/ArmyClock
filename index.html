@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<title>ARMY</title>
+	<script>
+		const daysLeft = (date) => {
+			let homeDate = new Date(2020, 11, 14);
+			let diffDays = Math.round(Math.abs((new Date() - homeDate) / (24 * 60 * 60 * 1000)));
+
+
+			let timeObj = {
+				day: diffDays,
+				hours: 22 - (new Date()).getHours(),
+				minutes: 60 - (new Date()).getMinutes(),
+				seconds: 60 - (new Date()).getSeconds()
+			}
+			return timeObj
+		}
+		// function randDarkColor() {
+			// 	let letters = '012345'.split('');
+			//   	let color = '#';        
+			//     color += letters[Math.round(Math.random() * 5)];
+			//     letters = '0123456789ABCDEF'.split('');
+			//     for (var i = 0; i < 5; i++) {
+			//         color += letters[Math.round(Math.random() * 5)];
+			//     }
+
+			//     return color
+		// }
+
+		let colors = ["#ab95d6", "#95bbd6", "#95d69a", "#ccd695", "#d6ad95"]
+
+		// console.log(daysLeft(new Date()))seconds
+
+		setInterval( () => {
+			document.querySelector('#days').innerText = daysLeft(new Date()).day
+			document.querySelector('#hours').innerText = daysLeft(new Date()).hours
+			document.querySelector('#minutes ').innerText = daysLeft(new Date()).minutes
+			document.querySelector('#seconds ').innerText = daysLeft(new Date()).seconds
+
+			//document.querySelector('#sec').style.color = colors[Math.round(Math.random() * 5)];
+
+			//console.log( daysLeft(new Date()))
+		}, 1000 )
+	</script>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap" rel="stylesheet">
+	<style>
+		* {
+			margin: 0;
+			font-family: "Ubuntu"
+		}
+		body {
+			width: 100%;
+			height: 100vh;
+			background: #331273;
+			color: #fff;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			justify-content: center;
+			-ms-align-items: center;
+			align-items: center;
+			-webkit-flex-direction: column;
+			-moz-flex-direction: column;
+			-ms-flex-direction: column;
+			-o-flex-direction: column;
+			flex-direction: column;
+		}
+		.page {
+			/*text-align: right; */
+		}
+		.page p {
+			font-size: 35px;
+		}
+		.page span {
+			font-weight: bold;
+			font-size: 40px;
+			color: #93d6ff;
+			display: inline-block;
+			text-align: center;
+			width: 80px;
+		}
+		.page #sec {
+			font-weight: 100;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+
+		<p><span id="days">365</span> days</p>
+		<p><span id="hours">24</span> hours</p>
+		<p><span id="minutes">60</span> minutes</p>
+		<p><span id="seconds">60</span> <span id="sec">seconds</span></p>
+	</div>
+</body>
+</html>
